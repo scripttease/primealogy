@@ -1,0 +1,2 @@
+defmodule Primealogy do
+end
