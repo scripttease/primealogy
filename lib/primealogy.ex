@@ -1,29 +1,20 @@
 defmodule Primealogy do
 
-  def first_n_primes(n) do
-    calculate_primes(rosser_max(n), [2])
+  def first_n_primes(count) do
+    calculate_primes(count - 1, 3, [2])
   end
 
-
-  def calculate_primes(1, primes) do
-    Enum.sort(primes)
+  def calculate_primes(0, _, primes) do
+    Enum.reverse(primes)
   end
 
-
-  def calculate_primes(n, primes) do
-    if Enum.all?(primes, fn(x) -> rem(n, x) != 0 end) do
-      calculate_primes(n - 1, [n | primes])
+  def calculate_primes(count, candidate, primes) do
+    if Enum.all?(primes, fn(x) -> rem(candidate, x) != 0 end) do
+      calculate_primes(count - 1, candidate + 1, [candidate | primes])
+      # IO.puts "count is #{count}, candidate is #{candidate}, primes are #{inspect primes}"
     else
-      calculate_primes(n - 1, primes)
-    end
-  end
-
-
-  def rosser_max(n) do
-    if n >= 6 do
-      17
-    else
-      round(n*(:math.log(n)) + n)
+      calculate_primes(count, candidate + 1, primes)
+      # IO.puts "count is #{count}, candidate is #{candidate}, primes are #{inspect primes}"
     end
   end
 
