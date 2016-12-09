@@ -21,10 +21,14 @@ defmodule Primealogy do
   end
 
   def prime_grid(n) do
-    result = 
-      first_n_primes(n)
-      |> GridGenie.mult_table
-      |> GridGenie.draw_grid
-    IO.puts(List.to_string(result))
+    cond do
+      n <= 0 -> IO.puts("Not so negative please. Got anything a little bigger?")
+      is_integer(n) == true -> result = 
+        first_n_primes(n)
+        |> GridGenie.mult_table
+        |> GridGenie.draw_grid
+      IO.puts(List.to_string(result))
+      true -> IO.puts("Sorry, I need an integer")
+    end
   end
 end
