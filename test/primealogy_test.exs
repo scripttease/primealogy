@@ -2,6 +2,10 @@ defmodule PrimealogyTest do
   use ExUnit.Case
   doctest Primealogy
 
+  test "first_n_primes(0)" do
+    assert Primealogy.first_n_primes(0) == []
+  end
+
   test "first_n_primes(1)" do
     assert Primealogy.first_n_primes(1) == [2]
   end

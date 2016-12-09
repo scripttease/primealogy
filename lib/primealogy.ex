@@ -1,5 +1,9 @@
 defmodule Primealogy do
 
+  def first_n_primes(0) do
+    []
+  end
+
   def first_n_primes(count) do
     calculate_primes(count - 1, 3, [2])
   end
@@ -14,5 +18,13 @@ defmodule Primealogy do
     else
       calculate_primes(count, candidate + 1, primes)
     end
+  end
+
+  def prime_grid(n) do
+    result = 
+      first_n_primes(n)
+      |> GridGenie.mult_table
+      |> GridGenie.draw_grid
+    IO.puts(List.to_string(result))
   end
 end

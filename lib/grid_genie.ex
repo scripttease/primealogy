@@ -13,8 +13,9 @@ defmodule GridGenie do
       |> Enum.map(&to_string/1)
       |> Enum.intersperse(" | ")
     List.flatten([[" | "] | grid_table])
-    grid_table2 = [[" | "] | grid_table]
-    IO.puts(List.to_string(grid_table2))
-    # |> IO.puts(&to_string/1)
+    # grid_table2 = [[" | "] | grid_table]
+    # IO.puts(List.to_string(grid_table2))
   end
+  # TODO append trailing [" | "] in non ugly/expensive way
+  #TODO add padding to columns
 end
