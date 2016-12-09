@@ -1,5 +1,8 @@
 defmodule Primealogy do
 
+  @doc """
+  Computes list of first n prime numbers counting down from argument n.
+  """
   def first_n_primes(0) do
     []
   end
@@ -20,6 +23,9 @@ defmodule Primealogy do
     end
   end
 
+  @doc """
+  Prints multiplication table grid for first n primes to stdout.
+  """
   def prime_grid(n) do
     cond do
       n <= 0 -> IO.puts("Not so negative please. Got anything a little bigger?")

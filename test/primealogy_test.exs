@@ -18,4 +18,8 @@ defmodule PrimealogyTest do
     assert Primealogy.first_n_primes(5) == [2, 3, 5, 7, 11]
   end
 
+  test "calculate_primes reverses the list of primes" do
+    assert Primealogy.calculate_primes(0, 2, [11, 7, 5, 3, 2]) == [2, 3, 5, 7, 11]
+  end
+
 end
